@@ -19,10 +19,10 @@ function setTextfromCalculate(inputId, value) {
 
 
 document.getElementById('calculate-btn').addEventListener('click', function () {
-    const selectdPlayersQuantity = getElementTextById('selected-players-numbers');
+    // const selectdPlayersQuantity = getElementTextById('selected-players-numbers');
     const playerBudget = getElementFeildById('player-budget');
 
-    const playerTotalCost = selectdPlayersQuantity * playerBudget;
+    const playerTotalCost = selectedArray.length * playerBudget;
     setTextfromCalculate('player-budget-expense', playerTotalCost);
 
 
@@ -66,28 +66,49 @@ document.getElementById('calculate-total-btn').addEventListener('click', functio
 
 const selectedArray = [];
 
-function display(showName) {
+function display(button) {
 
     const selectedPlayers = document.getElementById('seleted-players');
+
+
+
+    if (selectedArray.length > 5) {
+        alert('You can not add more than 5 Players');
+        selectedArray.pop();
+        return button.removeAttribute('disabled');
+    }
+
+
+
+
     selectedPlayers.innerHTML = '';
 
-    for (let i = 0; i < showName.length; i++) {
+    for (let i = 0; i < selectedArray.length; i++) {
         // console.log(selectedArray[i].playerName);
         const name = selectedArray[i].playerName;
+
 
         const tr = document.createElement('tr');
 
         tr.innerHTML = `
-        <th  class="text-white text-xl">${i + 1}.</th>
-        <td class="text-white text-xl" >${name}</td>
-        `;
+            <th  class="text-white text-xl">${i + 1}.</th>
+            <td class="text-white text-xl" >${name}</td>
+            `;
         selectedPlayers.appendChild(tr);
-    }
 
+
+    }
 
 }
 
+
 function selectButton(element) {
+    const button = element;
+    button.setAttribute('disabled', 'true');
+
+
+
+
     // console.log(element.parentNode.children[0].innerText);
 
     const playerName = element.parentNode.children[0].innerText;
@@ -104,10 +125,14 @@ function selectButton(element) {
     /*   console.log(selectedArray);
       console.log(selectedArray.length); */
 
-    document.getElementById('selected-players-numbers').innerText = selectedArray.length;
+    // document.getElementById('selected-players-numbers').innerText = selectedArray.length;
 
-    display(selectedArray);
+    display(button);
 }
+
+
+
+
 
 
 
