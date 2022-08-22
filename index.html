@@ -213,7 +213,7 @@
                     <div class="bg-black p-8 my-4 rounded-lg">
                         <h4 class="text-3xl text-white text-center font-semibold">Selected - V</h4>
                         <hr class="my-2">
-                        <ol class="text-lg text-white">
+                        <ol id="seleted-players" class="text-lg text-white">
                             <li class="py-2">1.<span> Ronaldinho</span></li>
                             <li class="py-2">2.<span> Naymer</span></li>
                             <li class="py-2">3.<span> M-Baphe</span></li>
@@ -226,35 +226,35 @@
                         <hr class="my-2">
                         <div class="grid grid-cols-2 my-5">
                             <h2 class="text-lg text-white mt-2">Per Player</h2>
-                            <input id="" class="bg-black border border-slate-300 rounded text-white p-2" type="number"
-                                name="">
+                            <input id="player-budget" class="bg-black border border-slate-300 rounded text-white p-2"
+                                type="number" name="">
                         </div>
-                        <button id="btn-calculate"
+                        <button id="calculate-btn"
                             class="bg-sky-700 hover:bg-gray-400 text-white px-4 py-2 w-full mt-3 font-semibold">Calculate</button>
                         <br> <br>
 
                         <div class="flex">
                             <h2 class="text-lg text-white w-3/4">Player Expenses:</h2>
-                            <h2 class="text-lg text-white w-1/4">$<span>5000</span></h2>
+                            <h2 class="text-lg text-white w-1/4">$<span id="player-budget-expense">5000</span></h2>
                         </div>
 
 
                         <div class="grid grid-cols-2 my-5">
                             <h2 class="text-lg text-white mt-2">Manager</h2>
-                            <input id="" class="bg-black border border-slate-300 rounded text-white p-2" type="number"
-                                name="">
+                            <input id="manager-budget" class="bg-black border border-slate-300 rounded text-white p-2"
+                                type="number" name="">
                         </div>
                         <div class="grid grid-cols-2 my-5">
                             <h2 class="text-lg text-white mt-2">Coach</h2>
-                            <input id="" class="bg-black border border-slate-300 rounded text-white p-2" type="number"
-                                name="">
+                            <input id="couch-budget" class="bg-black border border-slate-300 rounded text-white p-2"
+                                type="number" name="">
                         </div>
-                        <button id="btn-calculate"
-                            class="bg-sky-700 hover:bg-gray-400 text-white px-4 py-2 w-full mt-3">
+                        <button id="calculate-total-btn"
+                            class="bg-sky-700 hover:bg-gray-400 text-white px-4 py-2 w-full mt-3 font-semibold">
                             Calculate Total</button>
                         <div class="flex my-5">
-                            <h2 class="text-lg text-white w-3/4 font-semibold">Calculate Total:</h2>
-                            <h2 class="text-lg text-white w-1/4">$<span>5000</span></h2>
+                            <h2 class="text-xl text-white w-3/4 font-semibold">Total:</h2>
+                            <h2 class="text-xl text-red-500 w-1/4">$<span id="total-cost">5000</span></h2>
                         </div>
                     </div>
                 </div>
@@ -268,6 +268,9 @@
         <h3 class="text-white text-xl text-center">Copyright @ 2022 All Rights Reserved.</h3>
     </footer>
 
+
+
+    <script src="js/applied.js"></script>
 </body>
 
 </html>
