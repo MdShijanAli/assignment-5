@@ -19,9 +19,11 @@ function setTextfromCalculate(inputId, value) {
 
 
 document.getElementById('calculate-btn').addEventListener('click', function () {
+    const selectdPlayersQuantity = getElementTextById('selected-players-numbers');
     const playerBudget = getElementFeildById('player-budget');
 
-    setTextfromCalculate('player-budget-expense', playerBudget);
+    const playerTotalCost = selectdPlayersQuantity * playerBudget;
+    setTextfromCalculate('player-budget-expense', playerTotalCost);
 
 
 
@@ -41,3 +43,71 @@ document.getElementById('calculate-total-btn').addEventListener('click', functio
 
 
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const selectedArray = [];
+
+function display(showName) {
+
+    const selectedPlayers = document.getElementById('seleted-players');
+    selectedPlayers.innerHTML = '';
+
+    for (let i = 0; i < showName.length; i++) {
+        // console.log(selectedArray[i].playerName);
+        const name = selectedArray[i].playerName;
+
+        const tr = document.createElement('tr');
+
+        tr.innerHTML = `
+        <th  class="text-white text-xl">${i + 1}.</th>
+        <td class="text-white text-xl" >${name}</td>
+        `;
+        selectedPlayers.appendChild(tr);
+    }
+
+
+}
+
+function selectButton(element) {
+    // console.log(element.parentNode.children[0].innerText);
+
+    const playerName = element.parentNode.children[0].innerText;
+    // console.log(playerName);
+
+    /* const selectedPlayers = document.getElementById('seleted-players');
+    selectedPlayers.innerText = playerName; */
+
+    const nameObj = {
+        playerName: playerName,
+
+    }
+    selectedArray.push(nameObj);
+    /*   console.log(selectedArray);
+      console.log(selectedArray.length); */
+
+    document.getElementById('selected-players-numbers').innerText = selectedArray.length;
+
+    display(selectedArray);
+}
+
+
+
