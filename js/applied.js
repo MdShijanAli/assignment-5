@@ -18,6 +18,9 @@ function setTextfromCalculate(inputId, value) {
 }
 
 
+
+
+
 document.getElementById('calculate-btn').addEventListener('click', function () {
     // const selectdPlayersQuantity = getElementTextById('selected-players-numbers');
     const playerBudget = getElementFeildById('player-budget');
@@ -25,9 +28,14 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
     const playerTotalCost = selectedArray.length * playerBudget;
     setTextfromCalculate('player-budget-expense', playerTotalCost);
 
-
-
-
+    const errorNumber = '00';
+    if(playerBudget <= 0 || playerTotalCost === isNaN(value)){
+        alert('Please Provide a Valid Number');
+        setTextfromCalculate('player-budget-expense', errorNumber);
+    }
+    return;
+   
+    
 
 })
 
@@ -40,6 +48,16 @@ document.getElementById('calculate-total-btn').addEventListener('click', functio
     const calculateTotal = newPlayerExpence + managerBudget + coachBudget;
 
     setTextfromCalculate('total-cost', calculateTotal);
+
+
+    const errorNumber = '00';
+    if(managerBudget <= 0 || coachBudget <= 0 || calculateTotal === isNaN(value)){
+        alert('Please Provide a Valid Number');
+        setTextfromCalculate('total-cost', errorNumber);
+    }
+    return;
+  
+
 
 
 })
@@ -91,8 +109,8 @@ function display(button) {
         const tr = document.createElement('tr');
 
         tr.innerHTML = `
-            <th  class="text-white text-xl">${i + 1}.</th>
-            <td class="text-white text-xl" >${name}</td>
+            <th  class="text-white text-xl ">${i + 1}.</th>
+            <td class="text-white text-xl " >${name}</td>
             `;
         selectedPlayers.appendChild(tr);
 
@@ -134,5 +152,18 @@ function selectButton(element) {
 
 
 
+
+
+
+
+
+/* document.getElementById('calculate-btn').addEventListener('click', function () {
+    
+}) */
+
+// document.getElementById('calculate-total-btn').addEventListener('click', function () {
+ 
+
+// })
 
 

@@ -210,7 +210,7 @@
                 <!-- calculation section start-->
 
                 <div class=" w-1/4">
-                    <div class="bg-black p-8 my-4 rounded-lg">
+                    <div class="bg-black py-10 px-4 my-4 rounded-lg">
                         <h4 class="text-3xl text-white text-center font-semibold">Selected Top V</h4>
                         <hr class="my-2">
                         <table>
@@ -225,13 +225,15 @@
                         </table>
 
                     </div>
-                    <div class="bg-black p-8 my-4 rounded-lg">
+                    <div class="bg-black  py-10 px-4 my-4 rounded-lg">
                         <h4 class="text-3xl text-white text-center font-semibold ">Budget</h4>
                         <hr class="my-2">
+
                         <div class="grid grid-cols-2 my-5">
                             <h2 class="text-lg text-white mt-2">Per Player</h2>
-                            <input id="player-budget" class="bg-black border border-slate-300 rounded text-white p-2"
-                                type="number" name="">
+                            <input id="player-budget" required
+                                class="bg-black border border-slate-300 rounded text-white p-2" type="number" name="">
+
                         </div>
                         <button id="calculate-btn"
                             class="bg-teal-500 hover:bg-teal-900  text-white px-4 py-2 w-full mt-3 font-semibold">Calculate</button>
@@ -239,7 +241,7 @@
 
                         <div class="flex">
                             <h2 class="text-lg text-white w-3/4">Player Expenses:</h2>
-                            <h2 class="text-lg text-white w-1/4">$<span id="player-budget-expense">00</span></h2>
+                            <h2 class="text-lg text-white w-1/4 mr-10">$<span id="player-budget-expense">00</span></h2>
                         </div>
 
 
@@ -258,7 +260,7 @@
                             Calculate Total</button>
                         <div class="flex my-5">
                             <h2 class="text-xl text-white w-3/4 font-semibold">Total:</h2>
-                            <h2 class="text-xl text-red-500 w-1/4">$<span id="total-cost">00</span></h2>
+                            <h2 class="text-xl text-red-500 w-1/4 mr-20">$<span id="total-cost">00</span></h2>
                         </div>
                     </div>
                 </div>
