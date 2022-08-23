@@ -14,7 +14,7 @@ function getElementTextById(inputId) {
 
 function setTextfromCalculate(inputId, value) {
     const setText = document.getElementById(inputId);
-    setText.innerText = value;
+    setText.innerText = value.toFixed(2);
 }
 
 
