@@ -18,30 +18,52 @@ function setTextfromCalculate(inputId, value) {
 }
 
 
+//Error handling function
+function errorCheck(value, field) {
 
+    if (value < 0 || isNaN(value) === true) {
+        alert("Error!! Input value is not valid !!");
+        const empty = '00';
+        setTextaValueById(field, empty);
+    }
+}
 
 
 document.getElementById('calculate-btn').addEventListener('click', function () {
     // const selectdPlayersQuantity = getElementTextById('selected-players-numbers');
     const playerBudget = getElementFeildById('player-budget');
 
+
+
+    //Input Error Check
+    errorCheck(playerBudget, 'player-budget-expense');
+
+
+
+
+
     const playerTotalCost = selectedArray.length * playerBudget;
     setTextfromCalculate('player-budget-expense', playerTotalCost);
 
-    const errorNumber = '00';
-    if(playerBudget <= 0 || playerTotalCost === isNaN(value)){
-        alert('Please Provide a Valid Number');
-        setTextfromCalculate('player-budget-expense', errorNumber);
-    }
-    return;
-   
-    
+
+
+
+
+
+
+
+
 
 })
 
 document.getElementById('calculate-total-btn').addEventListener('click', function () {
     const managerBudget = getElementFeildById('manager-budget')
+    //Input Error Check
+    errorCheck(managerBudget, 'total-cost');
+
     const coachBudget = getElementFeildById('couch-budget')
+    //Input Error Check
+    errorCheck(coachBudget, 'total-cost');
 
     const newPlayerExpence = getElementTextById('player-budget-expense');
 
@@ -50,13 +72,6 @@ document.getElementById('calculate-total-btn').addEventListener('click', functio
     setTextfromCalculate('total-cost', calculateTotal);
 
 
-    const errorNumber = '00';
-    if(managerBudget <= 0 || coachBudget <= 0 || calculateTotal === isNaN(value)){
-        alert('Please Provide a Valid Number');
-        setTextfromCalculate('total-cost', errorNumber);
-    }
-    return;
-  
 
 
 
@@ -65,21 +80,7 @@ document.getElementById('calculate-total-btn').addEventListener('click', functio
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// step:2
 
 
 const selectedArray = [];
@@ -130,20 +131,13 @@ function selectButton(element) {
     // console.log(element.parentNode.children[0].innerText);
 
     const playerName = element.parentNode.children[0].innerText;
-    // console.log(playerName);
 
-    /* const selectedPlayers = document.getElementById('seleted-players');
-    selectedPlayers.innerText = playerName; */
 
     const nameObj = {
         playerName: playerName,
 
     }
     selectedArray.push(nameObj);
-    /*   console.log(selectedArray);
-      console.log(selectedArray.length); */
-
-    // document.getElementById('selected-players-numbers').innerText = selectedArray.length;
 
     display(button);
 }
@@ -152,18 +146,5 @@ function selectButton(element) {
 
 
 
-
-
-
-
-
-/* document.getElementById('calculate-btn').addEventListener('click', function () {
-    
-}) */
-
-// document.getElementById('calculate-total-btn').addEventListener('click', function () {
- 
-
-// })
 
 
